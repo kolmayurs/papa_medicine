@@ -22,25 +22,28 @@ class App extends React.Component {
   let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
     const data_morning = this.state.medicine.map((items,i) => {
       if(items.qty[0] !== 0){
-        return(<div className="medicine">
-          <div className="medicine-name">{items.name}</div>
-          <div className="medicine-checkbox">{items.qty[0]}</div>
+        return(<div className="item">
+        <input type="checkbox" />
+          <label for="">{items.name}</label>
+          <span>{items.qty[0]}</span>
         </div>);
       }  
     });
     const data_afternoon = this.state.medicine.map((items,i) => {
       if(items.qty[1] !== 0){
-        return(<div className="medicine">
-          <div className="medicine-name">{items.name}</div>
-          <div className="medicine-checkbox">{items.qty[1]}</div>
+        return(<div className="item">
+        <input type="checkbox" />
+          <label for="">{items.name}</label>
+          <span>{items.qty[1]}</span>
         </div>);
       }  
     });
     const data_evening = this.state.medicine.map((items,i) => {
       if(items.qty[2] !== 0){
-        return(<div className="medicine">
-          <div className="medicine-name">{items.name}</div>
-          <div className="medicine-checkbox">{items.qty[2]}</div>
+        return(<div className="item">
+        <input type="checkbox" />
+          <label for="">{items.name}</label>
+          <span>{items.qty[2]}</span>
         </div>);
       }  
     });
@@ -49,11 +52,17 @@ class App extends React.Component {
       <div className="header">{date}</div>
       <div className="medicine-container">
         <div className="medicine-interval">Morning</div>
+        <div class="list-item">
         {data_morning}
+        </div>
         <div className="medicine-interval">Afternoon</div>
+        <div class="list-item">
         {data_afternoon}
+        </div>
         <div className="medicine-interval">Evening</div>
+        <div class="list-item">
         {data_evening}
+        </div>
       </div>
     </div>
   );

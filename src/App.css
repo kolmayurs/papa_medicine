@@ -1,51 +1,213 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css");
+
+body {
+    background-image: linear-gradient(to right bottom, #032251, #022d6a, #013883, #04439e, #0b4fb9);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .main-container {
-  padding: 0px;
-  margin: 0px auto;
-  max-width:786px;
-  width: 100%;
+    width: 786px;
+    height: auto;
+    background-image: linear-gradient(to right top, #032251, #022d6a, #013883, #04439e, #0b4fb9);
+    border-radius: 10px;
+    box-shadow: 0px 5px 30px #000;
 
 }
-.header{
-  padding: 20px;
-  width: calc(100%-40px);
-  background: grey;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 30px;
+
+.header {
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
 }
 
-.medicine-interval{
-padding: 20px;
-  width: calc(100%-40px);
-  background: green;
-  text-align: left;
-  color: #fff;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.medicine{
-padding: 20px;
-  width: calc(100%-40px);
-  background: blue ;
-  color: #fff;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.medicine-name{
+.medicine-interval {
+    padding: 10px 20px;
     text-align: left;
-    display: inline-block;
-    width: 80%;
+    color: linear-gradient(to right top, #032251, #022d6a, #013883, #04439e, #0b4fb9);
+    font-weight: bold;
+    font-size: 24px;
+    background-color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
 }
 
-.medicine-checkbox{
-  text-align: right;
-    display: inline-block;
-    width: 20%;
+
+.list-item {
+    width: 100%;
+    max-width: 786px;
+    height: auto;
+    background-image: linear-gradient(to right top, #032251, #022d6a, #013883, #04439e, #0b4fb9);
+    border-radius: 10px;
+    box-shadow: 0px 5px 30px #000;
 }
 
-.medicine-checkbox input{
- 
+.item {
+    height: 50px;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    align-items: center;
+    color: black;
+    font-size: 1.3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.item input[type="checkbox"],
+.item span {
+    margin: 0 auto;
+}
+
+.item label,
+.item span {
+    color: rgba(255, 255, 255, .4);
+}
+
+.item input[type="checkbox"] {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    border: 2px solid rgba(255, 255, 255, .4);
+    border-radius: 3px;
+    outline: none;
+    margin: 0 auto;
+    transition: .2s all;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.item input[type="checkbox"]:before {
+    content: '\f00c';
+    position: absolute;
+    font-family: fontAwesome;
+    font-size: 10px;
+    color: rgba(255, 255, 255, .4);
+    opacity: 0;
+    color: aqua;
+}
+
+.item input[type="checkbox"]:checked:before {
+    opacity: 1;
+}
+
+.item input[type="checkbox"]:checked {
+    border-color: aqua;
+    box-shadow: 0px 0px 8px aqua;
+}
+
+.item input[type="checkbox"]:hover {
+    transform: scale(1.2);
+}
+
+.item input[type="checkbox"]:checked~label {
+    color: white;
+}
+
+.item input[type="checkbox"]:checked~span {
+    color: aqua;
+    animation: animation .5s;
+}
+
+.item label:before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 100%;
+    left: -80px;
+    transform: skew(40deg);
+    background: rgba(0, 0, 0, 0.1);
+    transition: .3s;
+}
+
+.item input[type="checkbox"]:checked~label:before {
+    left: 120%;
+}
+
+@keyframes animation {
+    0% {
+        opacity: 0;
+        transform: scale(.1) rotate(30deg);
+    }
+
+    50% {
+        transform: rotate(-10deg);
+    }
+
+    75% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        opacity: 1;
+        tranform: scale(1);
+    }
+}
+
+@media (max-width: 786px) {
+    .main-container {
+        width: 720px;
+
+    }
+}
+
+@media (max-width: 720px) {
+    .main-container {
+        width: 660px;
+
+    }
+}
+
+@media (max-width: 660px) {
+    .main-container {
+        width: 600px;
+
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        width: 540px;
+
+    }
+}
+
+@media (max-width: 540px) {
+    .main-container {
+        width: 480px;
+
+    }
+}
+
+@media (max-width: 480px) {
+    .main-container {
+        width: 420px;
+
+    }
+}
+
+
+@media (max-width: 420px) {
+    .main-container {
+        width: 360px;
+
+    }
+}
+
+@media (max-width: 360px) {
+    .main-container {
+        width: 300px;
+
+    }
+}
+
+@media (max-width: 300px) {
+    .main-container {
+        width: 100%;
+
+    }
 }
