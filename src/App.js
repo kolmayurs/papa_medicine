@@ -4,7 +4,8 @@ import './App.css';
 class App extends React.Component {
   constructor(props){
     super(props);
-    this.state = {  "medicine": [
+    this.state = { checked:true,
+      "medicine": [
     { "name":"Amlodipine 5mg", "qty":[ 1, 0, 1 ] },
     { "name":"Geoglim M1", "qty":[ 1, 0, 0 ]},
     { "name":"Voglibose 0.3mg", "qty":[ 0, 1, 0 ]},
@@ -17,9 +18,12 @@ class App extends React.Component {
     { "name":"Folic acid 5mg", "qty":[ 1, 0, 0 ]},
   ]}
   }
+
+
   render(){
-    var today = new Date();
-  let date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+    let today = new Date();
+     let mL = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let date = today.getDate()+' '+mL[today.getMonth()]+' '+today.getFullYear();
     const data_morning = this.state.medicine.map((items,i) => {
       if(items.qty[0] !== 0){
         return(<div className="item">
@@ -31,7 +35,7 @@ class App extends React.Component {
     });
     const data_afternoon = this.state.medicine.map((items,i) => {
       if(items.qty[1] !== 0){
-        return(<div className="item">
+        return(<div className="item" >
         <input type="checkbox" />
           <label for="">{items.name}</label>
           <span>{items.qty[1]}</span>
@@ -41,30 +45,30 @@ class App extends React.Component {
     const data_evening = this.state.medicine.map((items,i) => {
       if(items.qty[2] !== 0){
         return(<div className="item">
-        <input type="checkbox" />
-          <label for="">{items.name}</label>
-          <span>{items.qty[2]}</span>
-        </div>);
+                <input type="checkbox" />
+                <label for="">{items.name}</label>
+                <span>{items.qty[2]}</span>
+            </div>);
       }  
     });
     return (
     <div className="main-container">
-      <div className="header">{date}</div>
-      <div className="medicine-container">
+    <div className="header">{date}</div>
+    <div className="medicine-container">
         <div className="medicine-interval">Morning</div>
         <div class="list-item">
-        {data_morning}
+            {data_morning}
         </div>
         <div className="medicine-interval">Afternoon</div>
         <div class="list-item">
-        {data_afternoon}
+            {data_afternoon}
         </div>
         <div className="medicine-interval">Evening</div>
         <div class="list-item">
-        {data_evening}
+            {data_evening}
         </div>
-      </div>
     </div>
+</div>
   );
   }
   
