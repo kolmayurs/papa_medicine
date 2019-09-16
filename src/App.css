@@ -193,20 +193,6 @@ body {
 
 @media (max-width: 420px) {
     .main-container {
-        width: 360px;
-
-    }
-}
-
-@media (max-width: 360px) {
-    .main-container {
-        width: 300px;
-
-    }
-}
-
-@media (max-width: 300px) {
-    .main-container {
         width: 100%;
 
     }
